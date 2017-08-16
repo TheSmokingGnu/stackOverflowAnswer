@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  headless-browser:
+    image: yukinying/chrome-headless
+    ports:
+      - 9222
+  
+  crawler:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - headless-browser
